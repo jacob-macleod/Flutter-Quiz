@@ -6,6 +6,6 @@ class StyledText extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return Text("Hello world");
+    return const Text("Hello world");
   }
 }
