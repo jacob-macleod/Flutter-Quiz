@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/componments/styled_text.dart';
+import 'package:flutter_quiz/componments/normal_button.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -21,10 +22,8 @@ class MainPage extends StatelessWidget {
           ),
         ),
         const StyledText(myText: "Learn Flutter the fun way!"),
-        TextButton(
-          onPressed: buttonPressed,
-          child: const Text("Hello World"),
-        ),
+        const SizedBox(height: 20),
+        NormalButton(onPressed: buttonPressed, text: "Start Quiz"),
       ],
     );
   }
