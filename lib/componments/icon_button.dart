@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 
-class NormalButton extends StatelessWidget {
-  const NormalButton({super.key, required this.onPressed, required this.text});
+class ButtonWithIcon extends StatelessWidget {
+  const ButtonWithIcon(
+      {super.key, required this.onPressed, required this.text});
 
   final VoidCallback onPressed;
   final String text;
 
   Widget build(context) {
-    return OutlinedButton(
+    return OutlinedButton.icon(
       onPressed: onPressed,
-      child: Text(
+      icon: const Icon(
+        Icons.arrow_right_alt,
+        color: Colors.white,
+      ),
+      label: Text(
         text,
         style: const TextStyle(
           fontSize: 20,

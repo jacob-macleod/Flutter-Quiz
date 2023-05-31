@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/componments/styled_text.dart';
-import 'package:flutter_quiz/componments/normal_button.dart';
+import 'package:flutter_quiz/componments/icon_button.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -19,11 +19,12 @@ class MainPage extends StatelessWidget {
           child: Image.asset(
             "assets/images/quiz-logo.png",
             width: 250,
+            color: const Color.fromARGB(149, 255, 255, 255),
           ),
         ),
         const StyledText(myText: "Learn Flutter the fun way!"),
         const SizedBox(height: 20),
-        NormalButton(onPressed: buttonPressed, text: "Start Quiz"),
+        ButtonWithIcon(onPressed: buttonPressed, text: "Start Quiz"),
       ],
     );
   }
