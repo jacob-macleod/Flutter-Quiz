@@ -8,7 +8,6 @@ class NormalText extends StatelessWidget {
   Widget build(context) {
     return Center(
       child: Container(
-        padding: const EdgeInsets.all(10),
         child: Text(
           myText,
           style: const TextStyle(
