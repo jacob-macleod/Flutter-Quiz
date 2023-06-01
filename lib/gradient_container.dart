@@ -9,7 +9,7 @@ const blue2 = Color.fromARGB(255, 13, 38, 79);
 class GradientContainer extends StatelessWidget {
   const GradientContainer({super.key, required this.content});
 
-  final Widget content;
+  final Widget? content;
 
   @override
   Widget build(context) {
