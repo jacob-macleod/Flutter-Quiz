@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz/componments/styled_text.dart';
+import 'package:flutter_quiz/componments/normal_text.dart';
 import 'package:flutter_quiz/componments/answer_button.dart';
+import 'package:flutter_quiz/data/questions.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -12,8 +13,16 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
+  int currentQuestionIndex = 0;
+  var currentQuestion = questions[0];
+
   void onButtonClick() {
-    print("button clicked");
+    setState(() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        currentQuestion = questions[currentQuestionIndex];
+      }
+    });
   }
 
   @override
@@ -21,12 +30,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const StyledText(myText: "The Question"),
+        NormalText(myText: currentQuestion.text),
         const SizedBox(height: 30),
-        AnswerButton("Answer 1", onButtonClick),
-        AnswerButton("Answer 2", onButtonClick),
-        AnswerButton("Answer 3", onButtonClick),
-        AnswerButton("Answer 4", onButtonClick),
+        AnswerButton(currentQuestion.answers[0], onButtonClick),
+        AnswerButton(currentQuestion.answers[1], onButtonClick),
+        AnswerButton(currentQuestion.answers[2], onButtonClick),
       ],
     );
   }
