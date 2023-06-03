@@ -3,9 +3,9 @@ import 'package:flutter_quiz/componments/styled_text.dart';
 import 'package:flutter_quiz/componments/icon_button.dart';
 
 class MainPage extends StatelessWidget {
-  const MainPage(this.startQuiz, {super.key});
+  const MainPage(this.switchScreen, {super.key});
 
-  final void Function() startQuiz;
+  final Function(String screen) switchScreen;
 
   @override
   Widget build(context) {
@@ -22,7 +22,11 @@ class MainPage extends StatelessWidget {
         ),
         const StyledText(myText: "Learn Flutter the fun way!"),
         const SizedBox(height: 20),
-        ButtonWithIcon(onPressed: startQuiz, text: "Start Quiz"),
+        ButtonWithIcon(
+            onPressed: () {
+              switchScreen("Questions Screen");
+            },
+            text: "Start Quiz"),
       ],
     );
   }

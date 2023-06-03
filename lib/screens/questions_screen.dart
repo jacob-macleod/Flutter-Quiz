@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/componments/normal_text.dart';
-import 'package:flutter_quiz/componments/answer_button.dart';
+import 'package:flutter_quiz/screens/main_page.dart';
 import 'package:flutter_quiz/data/questions.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen(this.chooseAnswer, {super.key});
+  const QuestionsScreen(this.chooseAnswer, this.switchScreen, {super.key});
   final void Function(String) chooseAnswer;
+  final Function(String screen) switchScreen;
 
   @override
   State<QuestionsScreen> createState() {
@@ -24,6 +25,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       currentQuestionIndex++;
       if (currentQuestionIndex < questions.length) {
         currentQuestion = questions[currentQuestionIndex];
+      } else {
+        widget.switchScreen("Main Page");
       }
     });
   }
@@ -65,51 +68,3 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
     );
   }
 }
-
-/*import 'package:flutter/material.dart';
-import 'package:flutter_quiz/componments/normal_text.dart';
-import 'package:flutter_quiz/componments/answer_button.dart';
-import 'package:flutter_quiz/data/questions.dart';
-
-class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
-
-  @override
-  State<QuestionsScreen> createState() {
-    return _QuestionsScreenState();
-  }
-}
-
-class _QuestionsScreenState extends State<QuestionsScreen> {
-  int currentQuestionIndex = 0;
-  var currentQuestion = questions[0];
-  void onButtonClick() {
-    setState(() {
-      currentQuestionIndex++;
-      if (currentQuestionIndex < questions.length) {
-        currentQuestion = questions[currentQuestionIndex];
-      }
-    });
-  }
-
-  @override
-  Widget build(context) {
-    return Container(
-      padding: const EdgeInsets.all(40),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          NormalText(myText: currentQuestion.text),
-          const SizedBox(height: 30),
-          ...currentQuestion.getShuffledAnswers().map((answer) {
-            return AnswerButton(
-              answer,
-              onButtonClick,
-            );
-          }),
-        ],
-      ),
-    );
-  }
-}*/
