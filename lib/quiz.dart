@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:flutter_quiz/gradient_container.dart';
 import 'package:flutter_quiz/screens/questions_screen.dart';
 import 'package:flutter_quiz/screens/main_page.dart';
+import 'package:flutter_quiz/screens/results_screen.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -30,8 +31,10 @@ class _QuizState extends State<Quiz> {
     setState(() {
       if (screen == "Main Page") {
         activeScreen = MainPage(switchScreen);
-      } else {
+      } else if (screen == "Questions Screen") {
         activeScreen = QuestionsScreen(chooseAnswer, switchScreen);
+      } else {
+        //activeScreen = ResultsScreen();
       }
     });
   }

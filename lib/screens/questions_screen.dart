@@ -26,7 +26,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       if (currentQuestionIndex < questions.length) {
         currentQuestion = questions[currentQuestionIndex];
       } else {
-        widget.switchScreen("Main Page");
+        widget.switchScreen("Results Screen");
       }
     });
   }
