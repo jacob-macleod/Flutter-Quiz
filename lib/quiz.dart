@@ -27,14 +27,14 @@ class _QuizState extends State<Quiz> {
     super.initState();
   }
 
-  void switchScreen(String screen) {
+  void switchScreen(String screen, {List<String>? selectedAns}) {
     setState(() {
       if (screen == "Main Page") {
         activeScreen = MainPage(switchScreen);
       } else if (screen == "Questions Screen") {
         activeScreen = QuestionsScreen(chooseAnswer, switchScreen);
       } else {
-        //activeScreen = ResultsScreen();
+        activeScreen = ResultsScreen(selectedAnswers, switchScreen);
       }
     });
   }

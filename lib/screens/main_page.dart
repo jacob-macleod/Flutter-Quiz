@@ -5,7 +5,7 @@ import 'package:flutter_quiz/componments/icon_button.dart';
 class MainPage extends StatelessWidget {
   const MainPage(this.switchScreen, {super.key});
 
-  final Function(String screen) switchScreen;
+  final Function(String screen, {List<String>? selectedAns}) switchScreen;
 
   @override
   Widget build(context) {

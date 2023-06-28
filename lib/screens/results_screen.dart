@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen(this.selectedAnswers, {super.key});
-  final List<String> selectedAnswers;
-  //final Function(String screen) switchScreen;
+  const ResultsScreen(this.selectedAnswers, this.switchScreen, {super.key});
+  final List<String>? selectedAnswers;
+  final Function(String screen, {List<String>? selectedAns}) switchScreen;
 
   @override
   Widget build(context) {
+    print(selectedAnswers);
+    if (selectedAnswers == null) {
+      return const Text("Error - no answers passed to Results Screen");
+    }
     return SizedBox(
       width: double.infinity,
       child: Container(

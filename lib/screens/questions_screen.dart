@@ -6,7 +6,7 @@ import 'package:flutter_quiz/data/questions.dart';
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen(this.chooseAnswer, this.switchScreen, {super.key});
   final void Function(String) chooseAnswer;
-  final Function(String screen) switchScreen;
+  final Function(String screen, {List<String>? selectedAns}) switchScreen;
 
   @override
   State<QuestionsScreen> createState() {
@@ -17,16 +17,18 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   int currentQuestionIndex = 0;
   var currentQuestion = questions[0];
+  List<String> selectedAnswers = [];
 
   onButtonClick(selectedAnswer) {
     widget.chooseAnswer(selectedAnswer);
+    selectedAnswers.add(selectedAnswer);
 
     setState(() {
       currentQuestionIndex++;
       if (currentQuestionIndex < questions.length) {
         currentQuestion = questions[currentQuestionIndex];
       } else {
-        widget.switchScreen("Results Screen");
+        widget.switchScreen("Results Screen", selectedAns: selectedAnswers);
       }
     });
   }
