@@ -7,8 +7,8 @@ class ResultsScreen extends StatelessWidget {
   final List<String>? selectedAnswers;
   final Function(String screen, {List<String>? selectedAns}) switchScreen;
 
-  List<Map<String, dynamic>> getSelectedAnswers() {
-    final List<Map<String, dynamic>> summary = [];
+  List<Map<String, Object>> getSelectedAnswers() {
+    final List<Map<String, Object>> summary = [];
 
     if (selectedAnswers != null) {
       for (int i = 0; i < selectedAnswers!.length; i++) {
@@ -17,7 +17,7 @@ class ResultsScreen extends StatelessWidget {
             'question_index': i,
             'question': questions[i].text,
             'correct_answer': questions[i].answers[0],
-            'user_answer': selectedAnswers?[i],
+            'user_answer': selectedAnswers![i],
           },
         );
       }
@@ -38,9 +38,9 @@ class ResultsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            QuestionsSummary(getSelectedAnswers()),
+            const Text("You answered X out of Y questions correctly"),
             const SizedBox(height: 30),
-            const Text("List of answers and questions"),
+            QuestionsSummary(getSelectedAnswers()),
             const SizedBox(height: 30),
             TextButton(onPressed: () {}, child: const Text("Restart Quiz"))
           ],
