@@ -2,54 +2,57 @@ import 'package:flutter_quiz/models/quiz_questions.dart';
 
 const questions = [
   QuizQuestion(
-    'What are the main building blocks of Flutter UIs?',
+    'What is the purpose of the main() function in a Flutter app?',
     [
-      'Widgets',
-      'Components',
-      'Blocks',
-      'Functions',
-    ],
-  ),
-  QuizQuestion('How are Flutter UIs built?', [
-    'By combining widgets in code',
-    'By combining widgets in a visual editor',
-    'By defining widgets in config files',
-    'By using XCode for iOS and Android Studio for Android',
-  ]),
-  QuizQuestion(
-    'What\'s the purpose of a StatefulWidget?',
-    [
-      'Update UI as data changes',
-      'Update data as UI changes',
-      'Ignore data changes',
-      'Render UI that does not depend on data',
+      'To serve as the entry point of the application',
+      'To define the main layout of the app',
+      'To handle user interactions',
+      'To configure the app\'s routing system',
     ],
   ),
   QuizQuestion(
-    'Which widget should you try to use more often: StatelessWidget or StatefulWidget?',
+    'What is the default layout algorithm used in Flutter?',
     [
-      'StatelessWidget',
-      'StatefulWidget',
-      'Both are equally good',
-      'None of the above',
+      'Row and Column',
+      'Flexbox',
+      'Grid',
+      'Stack',
     ],
   ),
   QuizQuestion(
-    'What happens if you change data in a StatelessWidget?',
+    'What is the purpose of the MaterialApp widget in Flutter?',
     [
-      'The UI is not updated',
-      'The UI is updated',
-      'The closest StatefulWidget is updated',
-      'Any nested StatefulWidgets are updated',
+      'To set up and configure the overall structure of the app',
+      'To define the app\'s data models',
+      'To handle HTTP requests',
+      'To manage the app\'s state',
     ],
   ),
   QuizQuestion(
-    'How should you update data inside of StatefulWidgets?',
+    'What does the term "hot reload" refer to in Flutter development?',
     [
-      'By calling setState()',
-      'By calling updateData()',
-      'By calling updateUI()',
-      'By calling updateState()',
+      'The ability to see immediate changes in the app while it is running',
+      'The process of compiling the app\'s source code',
+      'The mechanism for handling errors and exceptions',
+      'The technique for optimizing app performance',
+    ],
+  ),
+  QuizQuestion(
+    'What is the purpose of the async/await keywords in Dart?',
+    [
+      'To handle asynchronous operations in a more readable and synchronous-like manner',
+      'To define class constructors',
+      'To declare static variables',
+      'To enforce type safety',
+    ],
+  ),
+  QuizQuestion(
+    'What is the purpose of the initState() method in a StatefulWidget?',
+    [
+      'To initialize the state of the widget before it is displayed',
+      'To perform cleanup operations when the widget is removed',
+      'To define the layout of the widget',
+      'To handle user interactions',
     ],
   ),
 ];
