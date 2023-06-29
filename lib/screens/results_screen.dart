@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz/data/questions.dart';
 import 'package:flutter_quiz/questions_summary.dart';
+import 'package:flutter_quiz/data/questions.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen(this.selectedAnswers, this.switchScreen, {super.key});
@@ -26,11 +27,27 @@ class ResultsScreen extends StatelessWidget {
     return summary;
   }
 
+  String getCorrectAnswers(List<Map<String, Object>> summary) {
+    int correctAnswers = 0;
+
+    for (int i = 0; i < summary.length; i++) {
+      if (summary[i]['correct_answer'] == summary[i]['user_answer']) {
+        correctAnswers++;
+      }
+    }
+    return correctAnswers.toString();
+  }
+
   @override
   Widget build(context) {
     if (selectedAnswers == null) {
       return const Text("Error - no answers passed to Results Screen");
     }
+
+    List<Map<String, Object>> answerSummary = getSelectedAnswers();
+    String correctAnswers = getCorrectAnswers(answerSummary);
+    String numberOfQuestions = questions.length.toString();
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -38,9 +55,10 @@ class ResultsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("You answered X out of Y questions correctly"),
+            Text(
+                "You answered $correctAnswers out of $numberOfQuestions questions correctly"),
             const SizedBox(height: 30),
-            QuestionsSummary(getSelectedAnswers()),
+            QuestionsSummary(answerSummary),
             const SizedBox(height: 30),
             TextButton(onPressed: () {}, child: const Text("Restart Quiz"))
           ],
