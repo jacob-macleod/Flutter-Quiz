@@ -32,6 +32,7 @@ class _QuizState extends State<Quiz> {
       setState(() {
         if (screen == "Main Page") {
           activeScreen = MainPage(switchScreen);
+          selectedAnswers.clear();
         } else if (screen == "Questions Screen") {
           activeScreen = QuestionsScreen(chooseAnswer, switchScreen);
         } else {

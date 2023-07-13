@@ -35,6 +35,8 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
 
   @override
   Widget build(context) {
+    selectedAnswers = [];
+
     return Container(
       padding: const EdgeInsets.all(40),
       child: Column(
