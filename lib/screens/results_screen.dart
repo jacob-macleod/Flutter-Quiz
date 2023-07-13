@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quiz/data/questions.dart';
 import 'package:flutter_quiz/questions_summary.dart';
 import 'package:flutter_quiz/data/questions.dart';
+import 'package:flutter_quiz/componments/normal_text.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen(this.selectedAnswers, this.switchScreen, {super.key});
@@ -56,8 +57,9 @@ class ResultsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-                "You answered $correctAnswers out of $numberOfQuestions questions correctly"),
+            NormalText(
+                myText:
+                    "You answered $correctAnswers out of $numberOfQuestions questions correctly"),
             const SizedBox(height: 30),
             QuestionsSummary(answerSummary),
             const SizedBox(height: 30),
