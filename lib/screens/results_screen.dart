@@ -3,11 +3,17 @@ import 'package:flutter_quiz/data/questions.dart';
 import 'package:flutter_quiz/questions_summary.dart';
 import 'package:flutter_quiz/data/questions.dart';
 import 'package:flutter_quiz/componments/normal_text.dart';
+import 'package:flutter_quiz/componments/small_text.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen(this.selectedAnswers, this.switchScreen, {super.key});
   final List<String>? selectedAnswers;
   final Function(String screen, {List<String>? selectedAns}) switchScreen;
+
+  goToMainPage() {
+    print("going to main page");
+    switchScreen("Main Page");
+  }
 
   List<Map<String, Object>> getSelectedAnswers() {
     final List<Map<String, Object>> summary = [];
@@ -63,7 +69,19 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(height: 30),
             QuestionsSummary(answerSummary),
             const SizedBox(height: 30),
-            TextButton(onPressed: () {}, child: const Text("Restart Quiz"))
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(
+                  Icons.refresh,
+                  color: Colors.white,
+                ),
+                TextButton(
+                  onPressed: goToMainPage,
+                  child: const SmallText(myText: "Restart Quiz"),
+                ),
+              ],
+            ),
           ],
         ),
       ),

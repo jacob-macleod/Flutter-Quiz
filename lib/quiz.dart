@@ -28,14 +28,16 @@ class _QuizState extends State<Quiz> {
   }
 
   void switchScreen(String screen, {List<String>? selectedAns}) {
-    setState(() {
-      if (screen == "Main Page") {
-        activeScreen = MainPage(switchScreen);
-      } else if (screen == "Questions Screen") {
-        activeScreen = QuestionsScreen(chooseAnswer, switchScreen);
-      } else {
-        activeScreen = ResultsScreen(selectedAnswers, switchScreen);
-      }
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      setState(() {
+        if (screen == "Main Page") {
+          activeScreen = MainPage(switchScreen);
+        } else if (screen == "Questions Screen") {
+          activeScreen = QuestionsScreen(chooseAnswer, switchScreen);
+        } else {
+          activeScreen = ResultsScreen(selectedAnswers, switchScreen);
+        }
+      });
     });
   }
 
